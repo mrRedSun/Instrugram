@@ -125,6 +125,15 @@
     <ImageAsset Include="Resources\Assets.xcassets\CameraGlyph.imageset\icons8-aperture-80.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\ErrorIcon.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\ErrorIcon.imageset\icons8-box-important-filled-30.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\ErrorIcon.imageset\icons8-box-important-filled-50.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Resources\Assets.xcassets\FacebookIcon.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -178,32 +187,41 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CameraTabViewController.cs" />
-    <Compile Include="CameraTabViewController.designer.cs">
+    <Compile Include="ViewControllers\CameraTabViewController.cs" />
+    <Compile Include="ViewControllers\CameraTabViewController.designer.cs">
       <DependentUpon>CameraTabViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeedTabViewController.cs" />
-    <Compile Include="FeedTabViewController.designer.cs">
+    <Compile Include="ViewControllers\FeedTabViewController.cs" />
+    <Compile Include="ViewControllers\FeedTabViewController.designer.cs">
       <DependentUpon>FeedTabViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AppSettingsManager.cs" />
     <Compile Include="Helpers\FacebookLoginManager.cs" />
     <Compile Include="Helpers\UserManager.cs" />
-    <Compile Include="LoginScreenViewController.cs" />
-    <Compile Include="LoginScreenViewController.designer.cs">
+    <Compile Include="ViewControllers\LoginScreenViewController.cs" />
+    <Compile Include="ViewControllers\LoginScreenViewController.designer.cs">
       <DependentUpon>LoginScreenViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MainScreenTabbedViewController.cs" />
-    <Compile Include="MainScreenTabbedViewController.designer.cs">
+    <Compile Include="ViewControllers\MainScreenTabbedViewController.cs" />
+    <Compile Include="ViewControllers\MainScreenTabbedViewController.designer.cs">
       <DependentUpon>MainScreenTabbedViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProfileTabViewController.cs" />
-    <Compile Include="ProfileTabViewController.designer.cs">
+    <Compile Include="ViewControllers\ProfileInformationTableViewController.cs" />
+    <Compile Include="ViewControllers\ProfileInformationTableViewController.designer.cs">
+      <DependentUpon>ProfileInformationTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ProfileTabViewController.cs" />
+    <Compile Include="ViewControllers\ProfileTabViewController.designer.cs">
       <DependentUpon>ProfileTabViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="SQLite.cs" />
-    <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="ViewControllers\SettingsTableViewController.cs" />
+    <Compile Include="ViewControllers\SettingsTableViewController.designer.cs">
+      <DependentUpon>SettingsTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\SQLite.cs" />
+    <Compile Include="DataBase\SQLiteAsync.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -36,16 +36,19 @@ namespace Instrugram.iOS {
 
         public override void ViewDidLoad ()
         {
+            if (AppSettingsManager.IsLoggedIn)
+            {
+                PerformSegue("MainScreenSegue", this);
+                return;
+            }
+
             base.ViewDidLoad();
-
-            var plist = NSUserDefaults.StandardUserDefaults;
-
+    
             SetupFacebook();
             SetupMainViews();
             //SetupVideoPlayer();
             SetupBlurEffect();
             //_player.Play();
-
         }
 
         private void SetupFacebook () {
@@ -59,7 +62,7 @@ namespace Instrugram.iOS {
                 ReadPermissions = _facebookReadPermissoions
             };
 
-            _facebookLoginManager = new FacebookLoginManager();
+            _facebookLoginManager = new FacebookLoginManager(_facebookLoginButton);
             _facebookLoginManager.FacebookDidLoginSuccessfully += ( o, e ) => { Login( e.UserProfile ); };
             
 
@@ -129,8 +132,13 @@ namespace Instrugram.iOS {
 
         private void Login ( UserProfileModel userModel ) {
             using ( var userManager = new UserManager() ) {
+                userManager.FacebookLogin( userModel );
             }
 
+            PerformSegue("MainScreenSegue", this);
+
+            _videoEndedNotificationToken?.Dispose();
+            AppSettingsManager.IsLoggedIn = true;
             //todo: push tabbed view controller
         }
 

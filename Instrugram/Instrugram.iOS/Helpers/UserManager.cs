@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
-
+using System.Threading.Tasks;
 using Foundation;
 using Instrugram.iOS.Models;
 using UIKit;
@@ -12,11 +13,14 @@ using SQLite;
 
 namespace Instrugram.iOS.Helpers {
     class UserManager : IDisposable {
-        private bool disposed = false;
+        private bool _disposed = false;
 
-        private SQLiteConnection _dbConnection;
+        private readonly NSUserDefaults _plist;
+        private readonly SQLiteConnection _dbConnection;
 
         public UserManager () {
+            _plist = NSUserDefaults.StandardUserDefaults;
+            
             var documentsDirectoryPath = Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments );
             var dbPath = Path.Combine( documentsDirectoryPath, "Users.db" );
 
@@ -27,23 +31,26 @@ namespace Instrugram.iOS.Helpers {
         public bool Login ( string email, string password ) {
             var profile = FindUser( email );
 
-            if ( profile?.Password == password ) {
-
-
+            if ( password != null && profile?.Password == password ) {
+                AddProfileToUserDefaults(profile);
+                return true;
             }
 
             return false;
         }
-
 
         public void FacebookLogin ( UserProfileModel model ) {
             var user = FindUser( model.Email );
 
             if ( user == null ) {
                 Register( model );
+                AddProfileToUserDefaults( model);
+            } else {
+                Delete( user.Email, user.Password );
+                Register( model );
+                AddProfileToUserDefaults( model );
             }
 
-            AddProfileToUserDefaults( model );
         }
 
         public bool Register ( UserProfileModel profile ) {
@@ -72,25 +79,53 @@ namespace Instrugram.iOS.Helpers {
             return person;
         }
 
+        public void UpdateCurrentUser ( UserProfileModel newProfile ) {
+            var currentProfile = _dbConnection
+                .Query<UserProfileModel>( "select * from UserProfileModel where ID = " +
+                                          _plist.StringForKey( "ID" ) ).FirstOrDefault();
+
+            if ( currentProfile == null ) {
+                return;
+            }
+
+            var props = currentProfile.GetType().GetProperties();
+
+            foreach ( var currentProperty in props ) {
+
+                var value = currentProperty.GetValue(newProfile)?.ToString();
+                if ( !string.IsNullOrEmpty( value ) ) {
+                    if ( !(currentProperty.PropertyType == typeof(int)) ) {
+                        currentProperty.SetValue( currentProfile, value );
+                    }
+                }
+            }
+
+            _dbConnection.RunInTransaction( () => _dbConnection.Update( currentProfile ) );
+            AddProfileToUserDefaults( currentProfile );
+        }
+
         private void AddProfileToUserDefaults ( UserProfileModel model ) {
-            var plist = NSUserDefaults.StandardUserDefaults;
 
             var props = model.GetType().GetProperties();
 
             foreach ( var prop in props ) {
-                var value = prop.GetValue( model ).ToString();
-                plist.SetString( value, prop.Name );
+                var value = prop.GetValue( model )?.ToString();
+
+                if ( string.IsNullOrEmpty( value ) ) {
+                    continue;
+                }
+
+                _plist.SetString( value, prop.Name );
             }
         }
 
-
         public void Dispose () {
             _dbConnection.Dispose();
-            disposed = true;
+            _disposed = true;
         }
 
         ~UserManager () {
-            if ( disposed ) {
+            if ( _disposed ) {
                 return;
             }
 

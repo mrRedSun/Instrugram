@@ -22,6 +22,14 @@ namespace Instrugram.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITabBarItem FrofileTabBarItem { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView ProfilePictureImageView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIBarButtonItem SettingsButton { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (FrofileMainView != null) {
@@ -32,6 +40,16 @@ namespace Instrugram.iOS
             if (FrofileTabBarItem != null) {
                 FrofileTabBarItem.Dispose ();
                 FrofileTabBarItem = null;
+            }
+
+            if (ProfilePictureImageView != null) {
+                ProfilePictureImageView.Dispose ();
+                ProfilePictureImageView = null;
+            }
+
+            if (SettingsButton != null) {
+                SettingsButton.Dispose ();
+                SettingsButton = null;
             }
         }
     }

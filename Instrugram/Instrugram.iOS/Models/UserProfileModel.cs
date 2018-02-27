@@ -5,7 +5,7 @@ namespace Instrugram.iOS.Models
     class UserProfileModel 
     {
         [AutoIncrement, PrimaryKey]
-        public string ID { get; set; }
+        public int ID { get; set; }
 
         public string FacebookUserId { get; set; }
 

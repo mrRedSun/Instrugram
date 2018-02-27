@@ -18,8 +18,7 @@ namespace Instrugram.iOS
             TabBar.Items[1].Image = UIImage.FromBundle("CameraGlyph");
             TabBar.Items[2].Image = UIImage.FromBundle("ProfileMaleGlyph");
 
-
-
+            NavigationController.NavigationBarHidden = true;
         }
     }
 }
