@@ -64,5 +64,9 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>Your message goes here</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>Your message goes here</string>
 </dict>
 </plist>

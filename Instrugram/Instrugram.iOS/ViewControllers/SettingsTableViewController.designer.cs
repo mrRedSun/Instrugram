@@ -16,6 +16,14 @@ namespace Instrugram.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.NSLayoutConstraint ConstraintToSuperview { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.NSLayoutConstraint EmailConstraint { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel EmailLabel { get; set; }
 
         [Outlet]
@@ -25,10 +33,6 @@ namespace Instrugram.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField EmailTextField { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.NSLayoutConstraint EmailWidthConstraint { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -44,6 +48,16 @@ namespace Instrugram.iOS
 
         void ReleaseDesignerOutlets ()
         {
+            if (ConstraintToSuperview != null) {
+                ConstraintToSuperview.Dispose ();
+                ConstraintToSuperview = null;
+            }
+
+            if (EmailConstraint != null) {
+                EmailConstraint.Dispose ();
+                EmailConstraint = null;
+            }
+
             if (EmailLabel != null) {
                 EmailLabel.Dispose ();
                 EmailLabel = null;
@@ -57,11 +71,6 @@ namespace Instrugram.iOS
             if (EmailTextField != null) {
                 EmailTextField.Dispose ();
                 EmailTextField = null;
-            }
-
-            if (EmailWidthConstraint != null) {
-                EmailWidthConstraint.Dispose ();
-                EmailWidthConstraint = null;
             }
 
             if (PasswordTextField != null) {

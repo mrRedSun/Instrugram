@@ -16,14 +16,27 @@ namespace Instrugram.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIBarButtonItem AddPhotoButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView FeedMainView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITabBarItem FeedTabBarItem { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView NewsTableView { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (AddPhotoButton != null) {
+                AddPhotoButton.Dispose ();
+                AddPhotoButton = null;
+            }
+
             if (FeedMainView != null) {
                 FeedMainView.Dispose ();
                 FeedMainView = null;
@@ -32,6 +45,11 @@ namespace Instrugram.iOS
             if (FeedTabBarItem != null) {
                 FeedTabBarItem.Dispose ();
                 FeedTabBarItem = null;
+            }
+
+            if (NewsTableView != null) {
+                NewsTableView.Dispose ();
+                NewsTableView = null;
             }
         }
     }

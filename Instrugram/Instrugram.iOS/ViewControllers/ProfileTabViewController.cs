@@ -20,6 +20,7 @@ namespace Instrugram.iOS {
             using ( var url = new NSUrl( AppSettingsManager.ProfilePictureUrl ) )
                 using ( var data = NSData.FromUrl( url ) )
                     ProfilePictureImageView.Image = UIImage.LoadFromData( data );
+
         }
     }
 }

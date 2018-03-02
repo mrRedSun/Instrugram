@@ -92,6 +92,18 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Media, Version=3.1.3.222, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.3.1.3.222-beta\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions, Version=3.1.3.222, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.3.1.3.222-beta\lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.2.2.1\lib\Xamarin.iOS10\Plugin.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.2.2.1\lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Configuration.ConfigurationManager.4.4.0\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -185,8 +197,23 @@
     <None Include="Entitlements.plist" />
     <InterfaceDefinition Include="Main.storyboard" />
     <None Include="packages.config" />
+    <InterfaceDefinition Include="Resources\NewsFeedCell.xib" />
+    <InterfaceDefinition Include="Resources\FeedTableCell.xib" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\PhotoModel.cs" />
+    <Compile Include="PhotoAddViewController.cs" />
+    <Compile Include="PhotoAddViewController.designer.cs">
+      <DependentUpon>PhotoAddViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FeedTableCell.cs" />
+    <Compile Include="Resources\FeedTableCell.designer.cs">
+      <DependentUpon>FeedTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\NewsFeedCell.cs" />
+    <Compile Include="Resources\NewsFeedCell.designer.cs">
+      <DependentUpon>NewsFeedCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\CameraTabViewController.cs" />
     <Compile Include="ViewControllers\CameraTabViewController.designer.cs">
       <DependentUpon>CameraTabViewController.cs</DependentUpon>
@@ -235,6 +262,15 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ElectricGuitarPlay.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\test.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\phtt.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
