@@ -1,17 +1,14 @@
 ﻿using System;
-using UIKit;
 using AVFoundation;
 using CoreGraphics;
 using CoreMedia;
-using Foundation;
 using Facebook.LoginKit;
-using Facebook.CoreKit;
-using Facebook;
+using Foundation;
 using Instrugram.iOS.Helpers;
 using Instrugram.iOS.Models;
-using Newtonsoft.Json;
+using UIKit;
 
-namespace Instrugram.iOS {
+namespace Instrugram.iOS.ViewControllers {
     public partial class LoginScreenViewController : UIViewController {
 
         private LoginButton _facebookLoginButton;
@@ -139,7 +136,6 @@ namespace Instrugram.iOS {
 
             _videoEndedNotificationToken?.Dispose();
             AppSettingsManager.IsLoggedIn = true;
-            //todo: push tabbed view controller
         }
 
 

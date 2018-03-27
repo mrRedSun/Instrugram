@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using CoreGraphics;
 using Instrugram.iOS.Helpers;
 using Instrugram.iOS.Models;
 using UIKit;
 
-namespace Instrugram.iOS {
+namespace Instrugram.iOS.ViewControllers {
     public partial class SettingsTableViewController : UITableViewController {
         private UserProfileModel _currentProfileModelChanges;
         private bool _isChanged;

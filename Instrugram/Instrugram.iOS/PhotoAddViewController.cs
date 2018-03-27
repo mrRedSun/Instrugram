@@ -1,6 +1,8 @@
 ﻿using Foundation;
 using System;
 using CoreLocation;
+using Instrugram.iOS.Models;
+using Instrugram.iOS.ViewControllers;
 using MapKit;
 using UIKit;
 
@@ -10,6 +12,7 @@ namespace Instrugram.iOS
     {
         private MKPointAnnotation _annotation;
         private CLLocationManager _locationManager;
+        private PhotoModel _photoToAdd;
 
         public PhotoAddViewController (IntPtr handle) : base (handle)
         {
@@ -18,6 +21,8 @@ namespace Instrugram.iOS
         public override void ViewDidLoad ()
         {
             base.ViewDidLoad();
+            _photoToAdd = new PhotoModel();
+
             SetupMapView();
         }
 
@@ -55,7 +60,22 @@ namespace Instrugram.iOS
 
         public override void ViewWillDisappear ( bool animated ) {
             base.ViewWillDisappear( animated );
+            var rand = new Random();
+                              
+            using (var url = new NSUrl($"https://placebear.com/g/{ rand.Next(400, 1000)}/{rand.Next(400, 1000)}"))
+            using (var data = NSData.FromUrl(url))
+            {
+               _photoToAdd.Image = UIImage.LoadFromData(data);
+            }
+
+            _photoToAdd.Location = _annotation.Coordinate;
+            _photoToAdd.Date = DateTime.Now;
+
+            PhotoDataSource.Source.AddPhoto(_photoToAdd);
+
             NavigationController.NavigationBarHidden = true;
+
+
         }
     }
 }

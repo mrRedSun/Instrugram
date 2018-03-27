@@ -141,7 +141,7 @@
                                 <items>
                                     <barButtonItem id="73515" systemItem="add">
                                         <connections>
-                                            <segue id="73635" destination="73519" kind="show"/>
+                                            <segue id="75675" destination="73519" kind="show" identifier="AddPhotoSegue"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33720" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="838" y="-346"/>
+            <point key="canvasLocation" x="842" y="-341"/>
         </scene>
         <scene sceneID="33721">
             <objects>

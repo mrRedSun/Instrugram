@@ -7,9 +7,9 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using Foundation;
+using Instrugram.iOS.DataBase;
 using Instrugram.iOS.Models;
 using UIKit;
-using SQLite;
 
 namespace Instrugram.iOS.Helpers {
     class UserManager : IDisposable {

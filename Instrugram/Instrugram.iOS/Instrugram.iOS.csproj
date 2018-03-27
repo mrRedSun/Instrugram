@@ -197,7 +197,6 @@
     <None Include="Entitlements.plist" />
     <InterfaceDefinition Include="Main.storyboard" />
     <None Include="packages.config" />
-    <InterfaceDefinition Include="Resources\NewsFeedCell.xib" />
     <InterfaceDefinition Include="Resources\FeedTableCell.xib" />
   </ItemGroup>
   <ItemGroup>
@@ -209,10 +208,6 @@
     <Compile Include="Resources\FeedTableCell.cs" />
     <Compile Include="Resources\FeedTableCell.designer.cs">
       <DependentUpon>FeedTableCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\NewsFeedCell.cs" />
-    <Compile Include="Resources\NewsFeedCell.designer.cs">
-      <DependentUpon>NewsFeedCell.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewControllers\CameraTabViewController.cs" />
     <Compile Include="ViewControllers\CameraTabViewController.designer.cs">

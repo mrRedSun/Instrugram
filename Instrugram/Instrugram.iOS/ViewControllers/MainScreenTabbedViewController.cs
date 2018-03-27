@@ -1,10 +1,7 @@
-﻿using Foundation;
-using System;
+﻿using System;
 using UIKit;
-using System.Data;
-using Mono.Data.Sqlite;
 
-namespace Instrugram.iOS
+namespace Instrugram.iOS.ViewControllers
 {
     public partial class MainScreenTabbedViewController : UITabBarController {
 

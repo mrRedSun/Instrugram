@@ -1,10 +1,8 @@
-﻿using Foundation;
-using System;
-using UIKit;
+﻿using System;
 using Plugin.Media;
-using Plugin.Media.Abstractions;
+using UIKit;
 
-namespace Instrugram.iOS
+namespace Instrugram.iOS.ViewControllers
 {
     public partial class CameraTabViewController : UIViewController
     {

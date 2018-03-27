@@ -1,10 +1,8 @@
-﻿using Foundation;
-using System;
-using Facebook.CoreKit;
+﻿using System;
 using Instrugram.iOS.Helpers;
 using UIKit;
 
-namespace Instrugram.iOS
+namespace Instrugram.iOS.ViewControllers
 {
     public partial class ProfileInformationTableViewController : UITableViewController
     {

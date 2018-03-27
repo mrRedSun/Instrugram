@@ -1,4 +1,4 @@
-﻿using SQLite;
+﻿using Instrugram.iOS.DataBase;
 
 namespace Instrugram.iOS.Models
 {

@@ -1,10 +1,9 @@
 ﻿using System;
-using Facebook.CoreKit;
 using Foundation;
 using Instrugram.iOS.Helpers;
 using UIKit;
 
-namespace Instrugram.iOS {
+namespace Instrugram.iOS.ViewControllers {
     public partial class ProfileTabViewController : UIViewController {
 
         public ProfileTabViewController ( IntPtr handle ) : base( handle ) {

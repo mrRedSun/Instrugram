@@ -9,11 +9,10 @@ namespace Instrugram.iOS.Models {
         public string FileAdress { get; set; }
         public bool IsLiked { get; set; }
         public bool ToBeDeleted { get; set; } = false;
-        public  CLLocationCoordinate2D Location { get; set; }
+        public  CLLocationCoordinate2D? Location { get; set; }
 
-        // TODO: comments, maybe
 
-        public void Delete () {
+        public void Delete () { 
             // deletion-of-file
         }
     }
